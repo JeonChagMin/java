@@ -1,0 +1,50 @@
+13.
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("영문 텍스트를 입력하고 세미콜론을 입력하세요.");
+		StringBuffer result = new StringBuffer("");
+
+		char ABC[] = new char[26];
+		for (int i = 0; i < ABC.length; i++) {
+			ABC[i] = (char) ((char) 'A' + i);
+		}
+		int n[] = new int[26];
+//		boolean a = true;
+		while (true) {
+			result.append(s.nextLine());
+//			for (int i = 0; i < word.length(); i++) {
+//				if (word.charAt(i)==';') {
+//					word=word.toUpperCase();
+//					word=word.substring(0, word.lastIndexOf(";"));
+//					result.append(word);
+//					a = false;
+//				}
+//			}
+			if (s.nextLine().equals(";")) {
+				break;
+			}
+		}
+		
+		String word = result+"";
+		word =word.toUpperCase();
+
+		for (int i = 0; i < result.length(); i++) {
+			for (int j = 0; j < n.length; j++) {
+				if (word.charAt(i) == ABC[j]) {
+					n[j]++;
+				}
+
+			}
+
+		}
+		System.out.println("히스토그램을 그립니다");
+		for (int i = 0; i < ABC.length; i++) {
+			System.out.print(ABC[i]);
+			for (int j = 0; j < n[i]; j++) {
+				System.out.print("-");
+			}
+			System.out.println();
+		}
+	}
+
+}
